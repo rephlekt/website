@@ -11,4 +11,4 @@ before_install:
 
 #main commands for travis, will add test suite here eventually
 script: 
-    - docker run webserver -p 8080:80
+    - docker run -p 8080:80 webserver
