@@ -8,7 +8,7 @@ services:
 #commands executed before running tests/actions
 before_install:
     - docker build -t webserver .
-    - docker run -p 8080:80 webserver
+    - docker run webserver
 
 #main commands for travis, will add test suite here eventually
 #script: 
