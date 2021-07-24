@@ -1,0 +1,14 @@
+#tells travis we need to use superuser privileges, for docker
+sudo: required
+
+#tells travis we need to use docker
+services:
+    - docker
+
+#commands executed before running tests/actions
+before_install:
+    - docker build -t webserver .
+
+#main commands for travis, will add test suite here eventually
+script: 
+    - docker run webserver -p 8080:80
