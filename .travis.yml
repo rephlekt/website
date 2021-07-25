@@ -8,9 +8,9 @@ services:
 #commands executed before running tests/actions
 before_install:
     - docker build -t webserver .
-    - docker run webserver
+    - docker run -d webserver
 
 #main commands for travis, will add test suite here eventually
 script: 
-   - curl -vsf 'http://localhost:8080/' &> /dev/stdout
+   - curl -vsf 'http://localhost/' &> /dev/stdout
    - cat /tmp/error.log
