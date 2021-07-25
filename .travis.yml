@@ -11,5 +11,5 @@ before_install:
     - docker run webserver
 
 #main commands for travis, will add test suite here eventually
-#script: 
-#   - mytest
+script: 
+   - cat /tmp/error.log
