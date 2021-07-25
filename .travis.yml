@@ -15,3 +15,15 @@ before_install:
 #must curl port 8080, did not work when using just port 80
 script: 
     - curl -4fv http://localhost:8080 &> /dev/stdout
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "a website"
+    env: "a-website-env"
+    bucket_name: "elasticbeanstalk-us-east-2-897424296515"
+    bucket_path: "a website"
+    on:
+        branch: master
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
