@@ -12,4 +12,4 @@ before_install:
 
 #main commands for travis, will add test suite here eventually
 script: 
-    - curl -fv http://localhost &> /dev/stdout
+    - curl -4fv http://localhost &> /dev/stdout
