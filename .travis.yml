@@ -20,9 +20,10 @@ script:
 deploy:
     provider: s3
     region: "us-east-2"
-    bucket: "a-website-by-rephlekt"
+    bucket: a-website-by-rephlekt
     skip_cleanup: true
     on:
         branch: dockerless_static_hosting
     access_key_id: "$AWS_ACCESS_KEY"
     secret_access_key: "$AWS_SECRET_KEY"
+    acl: public_read
