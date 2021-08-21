@@ -1,6 +1,16 @@
 #tells travis we need to use superuser privileges, for docker
 sudo: required
 
+#tells travis we need to use docker
+services:
+    - docker
+
+#commands executed before running tests/actions
+#MUST use port mapping, general port 80 does not play nice with curl on travis ci
+before_install:
+    - docker build -t webserver .
+    - docker run --rm -d -p 8080:80 webserver
+
 #main commands for travis, will add test suite here eventually
 #must curl port 8080, did not work when using just port 80
 script: 
