@@ -13,3 +13,15 @@ body {
     font-family: 'Roboto Mono', monospace;
     color: #ffd6bf;
 }
+
+.btn {
+    color: #ffd6bf;
+    background-color: #ef473a;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 20% 1%;
+    margin: 0.5em;
+}
+
+nav {
+    background-color: #ffd6bf;
+}
