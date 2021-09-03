@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body class="container-fluid">
+        <%- include('partials/navbar') %>
+
+            <div class="row justify-content-center vertical-center body-text">
+                <div class="col-1 col-sm-2 col-md"></div>
+                <div class="col-10 col-sm-8 col-md">
+                    <h2>These are my notes.</h2>
+                    <p>
+                        Using MongoDB
+                    </p>
+                    <p>
+                    <ul>
+                        <li>Commands:</li>
+                        <ul>
+                            <li>use "dbname" -> creates a new database, and switches to that database</li>
+                            <li>db -> list currently used db</li>
+                            <li>CTRL-C -> exit the mongo shell</li>
+                            <li>show collections -> displays list of collection in current db</li>
+                            <li>db."collectionname".insert({"A JSON Object"}) -> insert an object or array of
+                                objects into the collection "collectionname" into database "dbname". This will create
+                                the collection if it didnt previously exist.</li>
+                            <ul>
+                                <li>When inserting a new object, mongo automatically assigns the object a new, likley
+                                    unique "ObjectID"</li>
+                            </ul>
+                            <li>db."collectionname".find({"key":"value"}) -> displays data matching key/value argument
+                                in "collectionname" of
+                                current db (returns a "cursor")</li>
+                            <li>db."collectionname".updateOne({"key":"value"}, {$set: {"key":"value"}}) -> updates first
+                                object
+                                that matches first key/value to include second key/value pair, adds second key if it did
+                                not already exist </li>
+                            <li>db."collectionname".updateMAny({"key":"value"}, {$set: {"key":"value"}}) -> like
+                                updateOne, but updates all matches to first key/value pair</li>
+                            <li>db."collectionname".deleteOne({"key":"value"}) -> deletes first match</li>
+                        </ul>
+                        <li>BSON: Binary JSON</li>
+                        <ul>
+                            <li>JSON that gets converted down to binary in the database, saves on space</li>
+                        </ul>
+                        <li>Mongo Operations</li>
+                        <ul>
+                            <li>Inserting requires putting data into a "collection"</li>
+                        </ul>
+
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 col-sm-2 col-md"></div>
+            </div>
+
+            <%- include('partials/bootstrap_footer.ejs') %>
+    </body>
+
+</html>
