@@ -1,0 +1,29 @@
+#tells travis we need to use superuser privileges, for docker
+sudo: required
+
+#tells travis we need to use docker
+services:
+    - docker
+
+#commands executed before running tests/actions
+#MUST use port mapping, general port 80 does not play nice with curl on travis ci
+before_install:
+    - docker build -t webserver .
+    - docker run --rm -d -p 8080:3000 webserver
+
+#main commands for travis, will add test suite here eventually
+#must curl port 8080, did not work when using just port 80
+script: 
+    - curl -4fv http://localhost:8080 &> /dev/stdout
+
+#deploy stage, new attempt to deploy to AWS s3
+deploy:
+    provider: s3
+    region: "us-east-2"
+    bucket: "a-website-by-rephlekt"
+    skip_cleanup: true
+    on:
+        branch: working_branch
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
+    acl: public_read
