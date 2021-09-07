@@ -17,14 +17,14 @@ script:
     - sleep 60
     - curl -4fv http://localhost:8080
 
-  deploy:
-    provider: elasticbeanstalk
-    region: "us-east-2"
-    app: "a website"
-    env: "a-website-env"
-    bucket_name: "elasticbeanstalk-us-east-2-897424296515"
-    bucket_path: "a website"
-    on:
-        branch: master
-    access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "a website"
+  env: "a-website-env"
+  bucket_name: "elasticbeanstalk-us-east-2-897424296515"
+  bucket_path: "a website"
+  on:
+    branch: dockerless_static_hosting
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY
