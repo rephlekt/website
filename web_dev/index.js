@@ -23,6 +23,10 @@ app.get('/webdev_notes', (req, res) => {
     res.render("webdev_notes");
 })
 
+app.get('/database_notes', (req, res) => {
+    res.render("database_notes");
+})
+
 app.listen(3000, () => {
     console.log('listening')
 })
