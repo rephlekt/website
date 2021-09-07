@@ -17,14 +17,14 @@ script:
     - sleep 300
     - curl -4fv http://localhost:8080
 
-#deploy stage, new attempt to deploy to AWS s3
-deploy:
-    provider: s3
+  deploy:
+    provider: elasticbeanstalk
     region: "us-east-2"
-    bucket: "a-website-by-rephlekt"
-    skip_cleanup: true
+    app: "a website"
+    env: "a-website-env"
+    bucket_name: "elasticbeanstalk-us-east-2-897424296515"
+    bucket_path: "a website"
     on:
-        branch: dockerless_static_hosting
+        branch: master
     access_key_id: "$AWS_ACCESS_KEY"
-    secret_access_key: "$AWS_SECRET_KEY"
-    acl: public_read
+    secret_access_key: "$AWS_SECRET_KEY
