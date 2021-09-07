@@ -14,7 +14,7 @@ before_install:
 #main commands for travis, will add test suite here eventually
 #must curl port 8080, did not work when using just port 80
 script: 
-    - curl -4fv http://localhost:8080 &> /dev/stdout
+    - curl -4fv http://localhost:3000 &> /dev/stdout
 
 #deploy stage, new attempt to deploy to AWS s3
 deploy:
